@@ -84,12 +84,12 @@ namespace SuperMemoAssistant.Plugins.ImageOcclusion
 
     #region Methods
 
-    private void CreateOrEditOcclusion()
+    private bool CreateOrEditOcclusion()
     {
       var ctrlGroup = Svc.SMA.UI.ElementWindow.ControlGroup;
 
       if (ctrlGroup == null)
-        return;
+        return true;
 
       var imgCtrlCount = ctrlGroup.Count(ctrl => ctrl.Type == ComponentType.Image);
 
@@ -98,6 +98,8 @@ namespace SuperMemoAssistant.Plugins.ImageOcclusion
 
       else if (imgCtrlCount == 1)
         CreateOcclusion(ctrlGroup);
+      
+      return true;
     }
 
     private void EditOcclusion(IControlGroup ctrlGroup)
