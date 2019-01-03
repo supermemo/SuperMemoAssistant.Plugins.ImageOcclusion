@@ -225,16 +225,17 @@ namespace SuperMemoAssistant.Plugins.ImageOcclusion
                         "").Replace("\n",
                                     "");
 
-      wb.Document.InvokeScript("eval",
-                               new object[]
-                               {
-                                 $"svgCanvas.setSvgString('{svg}')"
-                               });
+      if (wb.Document != null)
+        wb.Document.InvokeScript("eval",
+                                 new object[]
+                                 {
+                                   $"svgCanvas.setSvgString('{svg}')"
+                                 });
     }
 
     private string GetSvgFromBrowser()
     {
-      return wb.Document.InvokeScript("eval",
+      return wb.Document?.InvokeScript("eval",
                                       new object[] { "svgCanvas.svgCanvasToString()" }).ToString();
     }
 

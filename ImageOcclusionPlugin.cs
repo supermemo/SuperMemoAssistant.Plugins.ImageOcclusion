@@ -22,7 +22,7 @@
 // 
 // 
 // Created On:   2018/12/19 14:43
-// Modified On:  2018/12/19 17:13
+// Modified On:  2018/12/31 00:43
 // Modified By:  Alexis
 
 #endregion
@@ -68,13 +68,14 @@ namespace SuperMemoAssistant.Plugins.ImageOcclusion
     /// <inheritdoc />
     protected override void OnInit()
     {
-      Svc<ImageOcclusionPlugin>.KeyboardHotKey.RegisterHotKey(new HotKey(true,
-                                                                         false,
-                                                                         false,
-                                                                         true,
-                                                                         Key.O,
-                                                                         "Create/Edit Occlusion"),
-                                                              CreateOrEditOcclusion);
+      Svc.KeyboardHotKey.RegisterHotKey(
+        new HotKey(true,
+                   false,
+                   false,
+                   true,
+                   Key.O,
+                   "Create/Edit Occlusion"),
+        CreateOrEditOcclusion);
     }
 
     #endregion
@@ -84,12 +85,12 @@ namespace SuperMemoAssistant.Plugins.ImageOcclusion
 
     #region Methods
 
-    private bool CreateOrEditOcclusion()
+    private void CreateOrEditOcclusion()
     {
       var ctrlGroup = Svc.SMA.UI.ElementWindow.ControlGroup;
 
       if (ctrlGroup == null)
-        return true;
+        return;
 
       var imgCtrlCount = ctrlGroup.Count(ctrl => ctrl.Type == ComponentType.Image);
 
@@ -98,19 +99,13 @@ namespace SuperMemoAssistant.Plugins.ImageOcclusion
 
       else if (imgCtrlCount == 1)
         CreateOcclusion(ctrlGroup);
-      
-      return true;
+
+      return;
     }
 
-    private void EditOcclusion(IControlGroup ctrlGroup)
-    {
+    private void EditOcclusion(IControlGroup ctrlGroup) { }
 
-    }
-
-    private void CreateOcclusion(IControlGroup ctrlGroup)
-    {
-
-    }
+    private void CreateOcclusion(IControlGroup ctrlGroup) { }
 
     #endregion
   }
