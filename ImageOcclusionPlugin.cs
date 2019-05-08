@@ -21,8 +21,8 @@
 // DEALINGS IN THE SOFTWARE.
 // 
 // 
-// Created On:   2018/12/19 14:43
-// Modified On:  2018/12/31 00:43
+// Created On:   2019/03/02 18:29
+// Modified On:  2019/04/24 02:26
 // Modified By:  Alexis
 
 #endregion
@@ -31,18 +31,16 @@
 
 
 using System.Linq;
-using System.Windows.Input;
-using SuperMemoAssistant.Interop.Plugins;
 using SuperMemoAssistant.Interop.SuperMemo.Content.Controls;
 using SuperMemoAssistant.Interop.SuperMemo.Content.Models;
 using SuperMemoAssistant.Services;
-using SuperMemoAssistant.Sys.IO.Devices;
+using SuperMemoAssistant.Services.Sentry;
 
 namespace SuperMemoAssistant.Plugins.ImageOcclusion
 {
   // ReSharper disable once UnusedMember.Global
   // ReSharper disable once ClassNeverInstantiated.Global
-  public class ImageOcclusionPlugin : SMAPluginBase<ImageOcclusionPlugin>
+  public class ImageOcclusionPlugin : SentrySMAPluginBase<ImageOcclusionPlugin>
   {
     #region Constructors
 
@@ -66,16 +64,16 @@ namespace SuperMemoAssistant.Plugins.ImageOcclusion
     #region Methods Impl
 
     /// <inheritdoc />
-    protected override void OnInit()
+    protected override void PluginInit()
     {
-      Svc.KeyboardHotKey.RegisterHotKey(
-        new HotKey(true,
-                   false,
-                   false,
-                   true,
-                   Key.O,
-                   "Create/Edit Occlusion"),
-        CreateOrEditOcclusion);
+      //Svc.KeyboardHotKey.RegisterHotKey(
+      //  new HotKey(true,
+      //             false,
+      //             false,
+      //             true,
+      //             Key.O,
+      //             "Create/Edit Occlusion"),
+      //CreateOrEditOcclusion);
     }
 
     #endregion
@@ -99,12 +97,13 @@ namespace SuperMemoAssistant.Plugins.ImageOcclusion
 
       else if (imgCtrlCount == 1)
         CreateOcclusion(ctrlGroup);
-
-      return;
+      
     }
 
+    // ReSharper disable once UnusedParameter.Local
     private void EditOcclusion(IControlGroup ctrlGroup) { }
 
+    // ReSharper disable once UnusedParameter.Local
     private void CreateOcclusion(IControlGroup ctrlGroup) { }
 
     #endregion

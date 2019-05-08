@@ -39,7 +39,6 @@ using System.Web;
 using System.Windows.Forms;
 using Hjg.Pngcs;
 using Hjg.Pngcs.Chunks;
-using ImageOcclusionEditor;
 using SuperMemoAssistant.Services;
 using Svg;
 
@@ -65,7 +64,7 @@ namespace SuperMemoAssistant.Plugins.ImageOcclusion
 
       OcclusionFilePath = occlusionFilePath;
       OriginalSvg       = ReadSvgFromChunk();
-      Config            = Svc<ImageOcclusionPlugin>.Configuration.Load<ImageOcclusionCfg>().Result;
+      Config            = Svc.Configuration.Load<ImageOcclusionCfg>().Result;
 
       GetImageSize(backgroundFilePath,
                    out var width,
@@ -128,7 +127,7 @@ namespace SuperMemoAssistant.Plugins.ImageOcclusion
           break;
       }
 
-      Svc<ImageOcclusionPlugin>.Configuration.Save(Config);
+      Svc.Configuration.Save(Config);
 
       base.OnClosing(e);
     }
