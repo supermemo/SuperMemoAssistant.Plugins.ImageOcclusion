@@ -85,7 +85,7 @@ namespace SuperMemoAssistant.Plugins.ImageOcclusion
 
     private void CreateOrEditOcclusion()
     {
-      var ctrlGroup = Svc.SMA.UI.ElementWindow.ControlGroup;
+      var ctrlGroup = Svc.SMA.SM.UI.ElementWdw.ControlGroup;
 
       if (ctrlGroup == null)
         return;
