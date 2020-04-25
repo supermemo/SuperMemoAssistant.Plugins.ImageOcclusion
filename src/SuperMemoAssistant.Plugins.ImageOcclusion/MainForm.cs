@@ -44,6 +44,8 @@ using Svg;
 
 namespace SuperMemoAssistant.Plugins.ImageOcclusion
 {
+  using System.Globalization;
+
   public partial class MainForm : Form
   {
     #region Constants & Statics
@@ -64,7 +66,7 @@ namespace SuperMemoAssistant.Plugins.ImageOcclusion
 
       OcclusionFilePath = occlusionFilePath;
       OriginalSvg       = ReadSvgFromChunk();
-      Config            = Svc.Configuration.Load<ImageOcclusionCfg>().Result;
+      Config            = Svc.Configuration.Load<ImageOcclusionCfg>();
 
       GetImageSize(backgroundFilePath,
                    out var width,
@@ -74,7 +76,8 @@ namespace SuperMemoAssistant.Plugins.ImageOcclusion
       OcclusionHeight = height;
 
       wb.DocumentCompleted += Wb_DocumentCompleted;
-      wb.Navigate(string.Format("{0}?{1}",
+      wb.Navigate(string.Format(CultureInfo.InvariantCulture,
+                                "{0}?{1}",
                                 GetSvgEditorUri(),
                                 GenerateUrlParams(backgroundFilePath,
                                                   width,
