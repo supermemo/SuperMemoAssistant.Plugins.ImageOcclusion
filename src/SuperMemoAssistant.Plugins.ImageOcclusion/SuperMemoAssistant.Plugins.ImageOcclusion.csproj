@@ -70,10 +70,10 @@
       <Version>2.1.2</Version>
     </PackageReference>
     <PackageReference Include="PluginManager.Interop">
-      <Version>0.2.1.44</Version>
+      <Version>0.2.1.46</Version>
     </PackageReference>
     <PackageReference Include="PropertyChanged.Fody">
-      <Version>3.2.7</Version>
+      <Version>3.2.8</Version>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Sentry.Serilog">
