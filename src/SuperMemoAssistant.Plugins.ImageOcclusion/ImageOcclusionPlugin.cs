@@ -64,7 +64,7 @@ namespace SuperMemoAssistant.Plugins.ImageOcclusion
     #region Methods Impl
 
     /// <inheritdoc />
-    protected override void PluginInit()
+    protected override void OnPluginInitialized()
     {
       //Svc.KeyboardHotKey.RegisterHotKey(
       //  new HotKey(true,
@@ -74,6 +74,8 @@ namespace SuperMemoAssistant.Plugins.ImageOcclusion
       //             Key.O,
       //             "Create/Edit Occlusion"),
       //CreateOrEditOcclusion);
+
+      base.OnPluginInitialized();
     }
 
     #endregion
@@ -97,7 +99,6 @@ namespace SuperMemoAssistant.Plugins.ImageOcclusion
 
       else if (imgCtrlCount == 1)
         CreateOcclusion(ctrlGroup);
-      
     }
 
     // ReSharper disable once UnusedParameter.Local
