@@ -44,7 +44,7 @@ namespace SuperMemoAssistant.Plugins.ImageOcclusion
   {
     #region Constructors
 
-    public ImageOcclusionPlugin() : base("https://a63c3dad9552434598dae869d2026696@sentry.io/1362046") { }
+    public ImageOcclusionPlugin() : base("https://fe44a56550414a0da50fbe9a7ae8803d@o218793.ingest.sentry.io/5506808") { }
 
     #endregion
 
